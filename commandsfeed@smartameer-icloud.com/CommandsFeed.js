@@ -17,7 +17,7 @@ const CommandsFeedClass = class CommandsFeedClass extends PanelMenu.Button {
         this._commandData = {}
         this._base_api = 'http://www.commandlinefu.com/commands/random/json'
         let icon = new St.Icon({
-            gicon: Gio.icon_new_for_string(Me.dir.get_path() + '/console.svg'),
+            gicon: Gio.icon_new_for_string(Me.dir.get_path() + '/icons/console.svg'),
             style_class: 'system-status-icon'
         })
 
