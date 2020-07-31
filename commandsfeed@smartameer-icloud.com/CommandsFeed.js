@@ -1,12 +1,15 @@
 'use strict';
 
-const { St, GLib, Gio, Soup } = imports.gi
+const { St, Gio, Soup } = imports.gi
 const { main: Main, panelMenu: PanelMenu, popupMenu: PopupMenu } = imports.ui
 const { extensionUtils: Extension, util: Util } = imports.misc
 
 const Me = Extension.getCurrentExtension()
+const Translation = Me.imports.Translation
 const Clipboard = St.Clipboard.get_default()
 const CLIPBOARD_TYPE = St.ClipboardType.CLIPBOARD
+const _ = Translation.translate
+
 const CommandsFeedClass = class CommandsFeedClass extends PanelMenu.Button {
     _init () {
         super._init(1)
@@ -66,14 +69,14 @@ const CommandsFeedClass = class CommandsFeedClass extends PanelMenu.Button {
         this.menu.addMenuItem( new PopupMenu.PopupSeparatorMenuItem(), 1)
 
         // copy action
-        const copyItem = new PopupMenu.PopupMenuItem('Copy')
+        const copyItem = new PopupMenu.PopupMenuItem(_('Copy'))
         copyItem.connect('activate', () => {
             Clipboard.set_text(CLIPBOARD_TYPE, this._commandData.command)
         })
         this.menu.addMenuItem(copyItem, 3)
 
         // website link action
-        const visitItem = new PopupMenu.PopupMenuItem('Visit')
+        const visitItem = new PopupMenu.PopupMenuItem(_('Visit'))
         visitItem.connect('activate', () => {
             Util.trySpawnCommandLine( 'xdg-open ' + this._commandData.url)
         })
@@ -96,9 +99,9 @@ const CommandsFeedClass = class CommandsFeedClass extends PanelMenu.Button {
 
                 this._set_text(this.summaryText, summary)
                 this._set_text(this.commandText, '$ ' + command)
-                this._set_text(this.votesText, `Votes: ${votes}`)
+                this._set_text(this.votesText, _('Votes') + `: ${votes}`)
             } else {
-                Main.notify('Commands Feed Extension', 'Unable to retrieve commands. Please check your internet connection.')
+                Main.notify('Commands Feed Extension', _('Unable to retrieve commands. Please check your internet connection.'))
             }
         })
     }
