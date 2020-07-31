@@ -1,0 +1,26 @@
+.popup-command-box {
+    margin: 4px 16px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    background: #ffffff;
+}
+
+.popup-command-summary-box,
+.popup-command-command-box,
+.popup-command-votes-box {
+    padding: 8px 4px;
+    margin-bottom: 4px;
+}
+
+.popup-command-summary {
+    font-size: 18px;
+}
+.popup-command-command-box {
+    background: #333333;
+    padding: 8px;
+}
+.popup-command-command {
+    color: #A2FCA2;
+}
+.popup-command-votes-box {
+}
