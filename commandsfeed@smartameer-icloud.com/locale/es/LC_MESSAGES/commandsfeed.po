@@ -1,15 +1,15 @@
-# Spanish translations for PACKAGE package.
-# Copyright (C) 2020 THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# ameer <smartameer@icloud.com>, 2020.
+# Spanish translations for commandsfeed package.
+# Copyright (C) 2020 THE commandsfeed'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the commandsfeed package.
+# smartameer <smartameer@icloud.com>, 2020.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: commandsfeed master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-31 23:42+0530\n"
 "PO-Revision-Date: 2020-07-31 23:48+0530\n"
-"Last-Translator: ameer <smartameer@icloud.com>\n"
+"Last-Translator: smartameer <smartameer@icloud.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
