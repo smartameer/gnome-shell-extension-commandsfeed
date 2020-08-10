@@ -9,5 +9,4 @@ You can copy the command and you can visit the command too.
 
 v1.0
 
-![Desktop Command Feed](screenshot.png?raw=true)
-
+![Desktop Command Feed](screenshots/screenshot-v1.0.png?raw=true)
