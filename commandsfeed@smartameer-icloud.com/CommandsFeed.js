@@ -1,6 +1,6 @@
 'use strict';
 
-const { St, Gio, Soup } = imports.gi
+const { Gio, Soup, St } = imports.gi
 const { main: Main, panelMenu: PanelMenu, popupMenu: PopupMenu } = imports.ui
 const { extensionUtils: Extension, util: Util } = imports.misc
 
@@ -30,7 +30,7 @@ const CommandsFeedClass = class CommandsFeedClass extends PanelMenu.Button {
         const dataBox = new St.BoxLayout({
             style_class: 'popup-command-box',
             vertical: true,
-            height: 180,
+            height: 200,
             width: 420
         })
 
@@ -50,7 +50,7 @@ const CommandsFeedClass = class CommandsFeedClass extends PanelMenu.Button {
         })
         this.commandText.clutter_text.line_wrap = true
         dataCommand.add_actor(this.commandText)
-        dataBox.add_actor(dataCommand)
+        dataBox.add_actor(dataCommand, { expand: true, y_fill: false })
 
         const dataVotes = new St.BoxLayout({ style_class: 'popup-command-votes-box' }) 
         this.votesText = new St.Label({
@@ -60,34 +60,58 @@ const CommandsFeedClass = class CommandsFeedClass extends PanelMenu.Button {
         dataVotes.add_actor(this.votesText)
         dataBox.add_actor(dataVotes)
 
-
         const dataContainer = new St.BoxLayout()
         dataContainer.add_actor(dataBox)
         commandSection.actor.add(dataContainer)
 
-        this.menu.addMenuItem(commandSection, 0)
-        this.menu.addMenuItem( new PopupMenu.PopupSeparatorMenuItem(), 1)
+        // control items like copy visit refresh etc..
+        const controlBox = new PopupMenu.PopupBaseMenuItem({
+            reactive: false,
+            can_focus: false
+        })
 
-        // copy action
-        const copyItem = new PopupMenu.PopupMenuItem(_('Copy'))
-        copyItem.connect('activate', () => {
+        const copyIcon = new St.Icon({
+            gicon: Gio.icon_new_for_string(Me.dir.get_path() + '/icons/copy.svg'),
+            icon_size: 32
+        })
+        const copyButton = new St.Button({ can_focus: true, style_class: 'system-control-button' })
+        copyButton.set_child(copyIcon)
+        copyButton.connect('clicked', () => {
             Clipboard.set_text(CLIPBOARD_TYPE, this._commandData.command)
         })
-        this.menu.addMenuItem(copyItem, 3)
+        controlBox.actor.add(copyButton, { expand: false, x_fill: false })
 
-        // website link action
-        const visitItem = new PopupMenu.PopupMenuItem(_('Visit'))
-        visitItem.connect('activate', () => {
-            Util.trySpawnCommandLine( 'xdg-open ' + this._commandData.url)
+        const visitIcon = new St.Icon({
+            gicon: Gio.icon_new_for_string(Me.dir.get_path() + '/icons/link.svg'),
+            icon_size: 32
         })
-        this.menu.addMenuItem(visitItem, 4)
+        const visitButton = new St.Button({ can_focus: true, style_class: 'system-control-button' })
+        visitButton.set_child(visitIcon)
+        visitButton.connect('clicked', () => {
+            Util.trySpawnCommandLine( 'xdg-open ' + this._commandData.url)
+            this.menu.close();
+        })
+        controlBox.actor.add(visitButton, { expand: true, x_fill: false })
+
+        const refreshIcon = new St.Icon({
+            gicon: Gio.icon_new_for_string(Me.dir.get_path() + '/icons/refresh.svg'),
+            icon_size: 32
+        })
+        const refreshButton = new St.Button({ can_focus: true, style_class: 'system-control-button' })
+        refreshButton.set_child(refreshIcon)
+        refreshButton.connect('clicked', () => {
+            this._update()
+        })
+        controlBox.actor.add(refreshButton, { expand: false, x_fill: false })
+        this.menu.addMenuItem(commandSection, 0)
+        this.menu.addMenuItem( new PopupMenu.PopupSeparatorMenuItem(), 1)
+        this.menu.addMenuItem(controlBox, 2)
 
         this.menu.connect('open-state-changed', (menu, open) => {
             if (!open) {
                 this._update()
             }
         })
-
         this._update()
     }
 
