@@ -6,13 +6,14 @@ const { extensionUtils: Extension, util: Util } = imports.misc
 
 const Me = Extension.getCurrentExtension()
 const Translation = Me.imports.Translation
+const SearchCommands = Me.imports.SearchCommands
 const Clipboard = St.Clipboard.get_default()
 const CLIPBOARD_TYPE = St.ClipboardType.CLIPBOARD
 const _ = Translation.translate
 
 const CommandsFeedClass = class CommandsFeedClass extends PanelMenu.Button {
     _init () {
-        super._init(1)
+        super._init(0)
         this._httpSession = null
         this._commandData = {}
         this._base_api = 'http://www.commandlinefu.com/commands/random/json'
@@ -72,37 +73,50 @@ const CommandsFeedClass = class CommandsFeedClass extends PanelMenu.Button {
 
         const copyIcon = new St.Icon({
             gicon: Gio.icon_new_for_string(Me.dir.get_path() + '/icons/copy.svg'),
-            icon_size: 32
+            icon_size: 28
         })
         const copyButton = new St.Button({ can_focus: true, style_class: 'system-control-button' })
         copyButton.set_child(copyIcon)
         copyButton.connect('clicked', () => {
             Clipboard.set_text(CLIPBOARD_TYPE, this._commandData.command)
         })
-        controlBox.actor.add(copyButton, { expand: false, x_fill: false })
+        controlBox.actor.add(copyButton, { expand: true, x_fill: false })
 
         const visitIcon = new St.Icon({
             gicon: Gio.icon_new_for_string(Me.dir.get_path() + '/icons/link.svg'),
-            icon_size: 32
+            icon_size: 28
         })
         const visitButton = new St.Button({ can_focus: true, style_class: 'system-control-button' })
         visitButton.set_child(visitIcon)
         visitButton.connect('clicked', () => {
             Util.trySpawnCommandLine( 'xdg-open ' + this._commandData.url)
-            this.menu.close();
+            this.menu.close()
         })
         controlBox.actor.add(visitButton, { expand: true, x_fill: false })
 
         const refreshIcon = new St.Icon({
             gicon: Gio.icon_new_for_string(Me.dir.get_path() + '/icons/refresh.svg'),
-            icon_size: 32
+            icon_size: 28
         })
         const refreshButton = new St.Button({ can_focus: true, style_class: 'system-control-button' })
         refreshButton.set_child(refreshIcon)
         refreshButton.connect('clicked', () => {
             this._update()
         })
-        controlBox.actor.add(refreshButton, { expand: false, x_fill: false })
+        controlBox.actor.add(refreshButton, { expand: true, x_fill: false })
+
+        const searchIcon = new St.Icon({
+            gicon: Gio.icon_new_for_string(Me.dir.get_path() + '/icons/search.svg'),
+            icon_size: 28
+        })
+        const searchButton = new St.Button({ can_focus: true, style_class: 'system-control-button' })
+        searchButton.set_child(searchIcon)
+        searchButton.connect('clicked', () => {
+            this.menu.close()
+            this.searchPanel = new SearchCommands.SearchDialog()
+            this.searchPanel.open()
+        })
+        controlBox.actor.add(searchButton, { expand: true, x_fill: false })
         this.menu.addMenuItem(commandSection, 0)
         this.menu.addMenuItem( new PopupMenu.PopupSeparatorMenuItem(), 1)
         this.menu.addMenuItem(controlBox, 2)

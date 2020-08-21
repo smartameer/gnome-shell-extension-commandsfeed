@@ -26,13 +26,15 @@
 }
 
 .system-control-button {
-    border: 1px solid #cccccc;
     border-radius: 6px;
-    background: #ffffff;
     padding: 8px;
 }
 
 .system-control-button:focus,
 .system-control-button:hover {
-    background: #efefef;
+    background: #eee;
+}
+
+.command-feed-dialog-title {
+    font-size: 18px;
 }
