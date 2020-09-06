@@ -6,4 +6,4 @@ const Me = Extension.getCurrentExtension()
 Gettext.bindtextdomain('commandsfeed', Me.dir.get_child('locale').get_path())
 Gettext.textdomain('commandsfeed')
 
-const translate = Gettext.gettext
+var translate = Gettext.gettext

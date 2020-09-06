@@ -11,7 +11,7 @@ const Clipboard = St.Clipboard.get_default()
 const CLIPBOARD_TYPE = St.ClipboardType.CLIPBOARD
 const _ = Translation.translate
 
-const CommandsFeedClass = class CommandsFeedClass extends PanelMenu.Button {
+var CommandsFeedClass = class CommandsFeedClass extends PanelMenu.Button {
     _init () {
         super._init(0)
         this._httpSession = null
@@ -41,8 +41,8 @@ const CommandsFeedClass = class CommandsFeedClass extends PanelMenu.Button {
             style_class: 'popup-command-summary'
         })
         this.summaryText.clutter_text.line_wrap = true
-        dataSummary.actor.add_child(this.summaryText)
-        dataBox.actor.add_child(dataSummary)
+        dataSummary.add_actor(this.summaryText)
+        dataBox.add_actor(dataSummary)
 
         const dataCommand = new St.BoxLayout({ style_class: 'popup-command-command-box' })
         this.commandText = new St.Label({
@@ -50,19 +50,19 @@ const CommandsFeedClass = class CommandsFeedClass extends PanelMenu.Button {
             style_class: 'popup-command-command'
         })
         this.commandText.clutter_text.line_wrap = true
-        dataCommand.actor.add_child(this.commandText)
-        dataBox.actor.add_child(dataCommand, { expand: true, y_fill: false })
+        dataCommand.add_actor(this.commandText)
+        dataBox.add_actor(dataCommand)
 
         const dataVotes = new St.BoxLayout({ style_class: 'popup-command-votes-box' }) 
         this.votesText = new St.Label({
             text : '.... .. .',
             style_class: 'popup-command-votes'
         })
-        dataVotes.actor.add_child(this.votesText)
-        dataBox.actor.add_child(dataVotes)
+        dataVotes.add_actor(this.votesText)
+        dataBox.add_actor(dataVotes)
 
         const dataContainer = new St.BoxLayout()
-        dataContainer.actor.add_child(dataBox)
+        dataContainer.add_actor(dataBox)
         commandSection.actor.add(dataContainer)
 
         // control items like copy visit refresh etc..

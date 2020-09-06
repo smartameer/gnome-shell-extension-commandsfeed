@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: commandsfeed master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-31 23:42+0530\n"
-"PO-Revision-Date: 2020-07-31 23:48+0530\n"
-"Last-Translator: smartameer <smartameer@icloud.com>\n"
+"POT-Creation-Date: 2020-09-06 22:25+0530\n"
+"PO-Revision-Date: 2020-09-06 22:25+0530\n"
+"Last-Translator: ameer <smartameer@icloud.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -17,18 +17,26 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: CommandsFeed.js:72
-msgid "Copy"
-msgstr "Copie"
-
-#: CommandsFeed.js:79
-msgid "Visit"
-msgstr "Visite"
-
-#: CommandsFeed.js:102
+#: CommandsFeed.js:140
 msgid "Votes"
 msgstr "Votes"
 
-#: CommandsFeed.js:104
+#: CommandsFeed.js:142
 msgid "Unable to retrieve commands. Please check your internet connection."
 msgstr "Impossible de récupérer les commandes. S'il vous plait, vérifiez votre connexion internet"
+
+#: SearchCommands.js:33
+msgid "Search Commands"
+msgstr "Commandes de recherche"
+
+#: SearchCommands.js:71
+msgid "Press ESC to close"
+msgstr "Appuyez sur ESC pour fermer"
+
+#: SearchCommands.js:117
+msgid "No commands found for the searched text."
+msgstr "Aucune commande trouvée pour le texte recherché."
+
+#: SearchCommands.js:120
+msgid "Server returned status code: "
+msgstr "Le serveur a renvoyé le code d'état: "

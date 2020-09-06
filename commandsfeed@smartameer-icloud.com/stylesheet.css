@@ -9,7 +9,7 @@
 .popup-command-command-box,
 .popup-command-votes-box {
     padding: 8px 4px;
-    margin-bottom: 4px;
+    margin: 0 0 0 4px;
 }
 
 .popup-command-summary {
@@ -19,7 +19,8 @@
     background: #333333;
     padding: 8px;
 }
-.popup-command-command {
+.popup-command-command,
+.search-command-command {
     color: #A2FCA2;
 }
 .popup-command-votes-box {
@@ -30,6 +31,8 @@
     padding: 8px;
 }
 
+.search-control-button:focus,
+.search-control-button:hover,
 .system-control-button:focus,
 .system-control-button:hover {
     background: #eee;
@@ -37,4 +40,29 @@
 
 .command-feed-dialog-title {
     font-size: 18px;
+}
+
+.search-command-box {
+    border: 1px solid #ccc;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: #ffffff;
+    padding: 6px;
+}
+.search-command-summary {
+    font-size: 16px;
+}
+.search-command-command-box {
+    margin: 8px 0 0 0;
+    background: #333333;
+    padding: 8px;
+    border-radius: 6px;
+}
+.search-control-button {
+    background: #ffffff;
+    width: 38px;
+    height: 38px;
+    margin: 18px 0 18px 3px;
+    border-radius: 6px;
 }

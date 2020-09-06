@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: commandsfeed master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-31 23:42+0530\n"
-"PO-Revision-Date: 2020-07-31 23:49+0530\n"
-"Last-Translator: smartameer <smartameer@icloud.com>\n"
+"POT-Creation-Date: 2020-09-06 22:25+0530\n"
+"PO-Revision-Date: 2020-09-06 22:25+0530\n"
+"Last-Translator: ameer <smartameer@icloud.com>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -18,18 +18,26 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: CommandsFeed.js:72
-msgid "Copy"
-msgstr "копия"
-
-#: CommandsFeed.js:79
-msgid "Visit"
-msgstr "Посещение"
-
-#: CommandsFeed.js:102
+#: CommandsFeed.js:140
 msgid "Votes"
 msgstr "Голосов"
 
-#: CommandsFeed.js:104
+#: CommandsFeed.js:142
 msgid "Unable to retrieve commands. Please check your internet connection."
 msgstr "Невозможно получить команды. Пожалуйста, проверьте подключение к интернету."
+
+#: SearchCommands.js:33
+msgid "Search Commands"
+msgstr "Команды поиска"
+
+#: SearchCommands.js:71
+msgid "Press ESC to close"
+msgstr "Нажмите ESC, чтобы закрыть"
+
+#: SearchCommands.js:117
+msgid "No commands found for the searched text."
+msgstr "Команды для искомого текста не найдены."
+
+#: SearchCommands.js:120
+msgid "Server returned status code: "
+msgstr "Сервер вернул код состояния: "

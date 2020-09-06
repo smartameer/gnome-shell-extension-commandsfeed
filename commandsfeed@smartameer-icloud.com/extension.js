@@ -7,7 +7,7 @@ const { extensionUtils: Extension } = imports.misc
 const Me = Extension.getCurrentExtension()
 const CommandsFeed = Me.imports.CommandsFeed
 let commandsFeedExt = null
-const CommandsFeedIndicator = GObject.registerClass({
+var CommandsFeedIndicator = GObject.registerClass({
     GTypeName: 'CommandsFeedIndicator',
 }, CommandsFeed.CommandsFeedClass)
 

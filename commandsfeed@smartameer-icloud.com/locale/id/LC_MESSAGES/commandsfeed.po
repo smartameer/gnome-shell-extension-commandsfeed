@@ -7,27 +7,35 @@ msgid ""
 msgstr ""
 "Project-Id-Version: commandsfeed master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-31 23:42+0530\n"
-"PO-Revision-Date: 2020-07-31 23:49+0530\n"
-"Last-Translator: smartameer <smartameer@icloud.com>\n"
+"POT-Creation-Date: 2020-09-06 22:25+0530\n"
+"PO-Revision-Date: 2020-09-06 22:25+0530\n"
+"Last-Translator: ameer <smartameer@icloud.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: CommandsFeed.js:72
-msgid "Copy"
-msgstr "Menyalin"
-
-#: CommandsFeed.js:79
-msgid "Visit"
-msgstr "Mengunjungi"
-
-#: CommandsFeed.js:102
+#: CommandsFeed.js:140
 msgid "Votes"
 msgstr "Voting"
 
-#: CommandsFeed.js:104
+#: CommandsFeed.js:142
 msgid "Unable to retrieve commands. Please check your internet connection."
 msgstr "Tidak dapat mengambil perintah. Silakan periksa koneksi internet Anda."
+
+#: SearchCommands.js:33
+msgid "Search Commands"
+msgstr "Perintah Pencarian"
+
+#: SearchCommands.js:71
+msgid "Press ESC to close"
+msgstr "Tekan ESC untuk menutup"
+
+#: SearchCommands.js:117
+msgid "No commands found for the searched text."
+msgstr "Tidak ada perintah yang ditemukan untuk teks yang dicari."
+
+#: SearchCommands.js:120
+msgid "Server returned status code: "
+msgstr "Server mengembalikan kode status: "
